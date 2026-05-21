@@ -1,0 +1,138 @@
+.app {
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #1f2937;
+  background: #f7f5ef;
+}
+
+.intro,
+.controls,
+.summary,
+.movie-list {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.intro {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #b45309;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  color: #4b5563;
+  font-weight: 700;
+  text-align: left;
+}
+
+input,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px;
+  color: #111827;
+  background: #ffffff;
+  font: inherit;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #6b7280;
+}
+
+.movie-list {
+  display: grid;
+  gap: 14px;
+}
+
+.movie-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 18px;
+  text-align: left;
+  background: #ffffff;
+}
+
+.movie-card h2 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 1.2rem;
+}
+
+.movie-card p {
+  margin: 0;
+}
+
+.movie-genre {
+  margin-bottom: 8px;
+  color: #b45309;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #ffffff;
+  background: #1f2937;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #374151;
+}
+
+.empty-state {
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  background: #ffffff;
+}
+
+@media (max-width: 650px) {
+  .controls,
+  .summary,
+  .movie-card {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .summary {
+    display: grid;
+  }
+}

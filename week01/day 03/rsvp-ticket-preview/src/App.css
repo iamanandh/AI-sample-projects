@@ -1,0 +1,143 @@
+.app {
+  min-height: 100vh;
+  padding: 48px 24px;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+.intro {
+  max-width: 780px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #216c55;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.intro h1 {
+  margin: 0 0 8px;
+  font-size: 2.5rem;
+}
+
+.workspace {
+  max-width: 780px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.signup-form,
+.ticket-preview {
+  background: #ffffff;
+  border: 1px solid #d9e0ea;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 12px 28px rgba(23, 32, 51, 0.08);
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.signup-form h2,
+.ticket-preview h2 {
+  margin: 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 700;
+}
+
+input,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #bfcbda;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 3px solid #b9e5d7;
+  border-color: #216c55;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 700;
+  background: #216c55;
+  color: white;
+  cursor: pointer;
+}
+
+.secondary {
+  background: #e7edf5;
+  color: #172033;
+}
+
+.message {
+  margin: 0;
+  color: #216c55;
+  font-weight: 700;
+}
+
+.ticket-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  text-align: left;
+  border-left: 8px solid #216c55;
+}
+
+.ticket-label {
+  margin: 0;
+  color: #6b7280;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.ticket-preview p {
+  margin: 0;
+}
+
+.ticket-preview span {
+  width: fit-content;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #e6f4ef;
+  color: #216c55;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+}

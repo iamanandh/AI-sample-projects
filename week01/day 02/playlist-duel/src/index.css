@@ -1,0 +1,23 @@
+:root {
+  font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: #111827;
+  background: #eef2f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  transition: background-color 0.2s ease;
+}
+
+h1,
+h2,
+p {
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,101 @@
+.app {
+  width: min(960px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.intro {
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.intro p,
+.leader-box p {
+  color: #57606a;
+  font-weight: 700;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  max-width: 620px;
+  margin: 0;
+}
+
+.duel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.playlist-card {
+  background: #ffffff;
+  border: 3px solid;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: left;
+  box-shadow: 0 16px 40px rgba(20, 25, 38, 0.08);
+}
+
+.playlist-color {
+  width: 52px;
+  height: 12px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.playlist-card h2 {
+  margin: 0 0 8px;
+}
+
+.playlist-card p {
+  min-height: 52px;
+  margin: 0 0 18px;
+  color: #57606a;
+}
+
+.playlist-card strong {
+  display: block;
+  margin-bottom: 16px;
+  color: #111827;
+  font-size: 22px;
+}
+
+.playlist-card button {
+  width: 100%;
+  border: 0;
+  border-radius: 6px;
+  background: #111827;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 12px 14px;
+}
+
+.playlist-card button:hover {
+  background: #2f80ed;
+}
+
+.leader-box {
+  margin-top: 24px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  background: #f6f8fa;
+}
+
+.leader-box h2 {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .app {
+    padding: 28px 0;
+  }
+
+  .duel-grid {
+    grid-template-columns: 1fr;
+  }
+}
