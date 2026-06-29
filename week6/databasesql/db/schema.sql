@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS listings;
+
+CREATE TABLE listings (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(120) NOT NULL,
+  location VARCHAR(120) NOT NULL,
+  price_per_month INTEGER NOT NULL,
+  bedrooms INTEGER NOT NULL,
+  available BOOLEAN NOT NULL DEFAULT true,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
