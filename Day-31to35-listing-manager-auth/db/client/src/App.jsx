@@ -4,7 +4,8 @@ import Loginpage from "./page/loginpage.jsx";
 import Signuppage from "./page/signuppage.jsx";
 import "./App.css";
 
-const API_URL = "http://localhost:8000/api/listings";
+const API_BASE_URL = "http://localhost:8080/api";
+const API_URL = `${API_BASE_URL}/listings`;
 
 const emptyForm = {
   title: "",
@@ -25,14 +26,19 @@ function App() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [savedListings, setSavedListings] = useState([]);
-  async function handleSaveListing(listingId) {
-  const token = localStorage.getItem("token");
 
-  const response = await fetch(`http://localhost:8000/api/saved-listings/${listingId}`, {
-    method: "POST",
-    headers: {
+  function getAuthHeaders() {
+    const token = localStorage.getItem("token");
+
+    return {
       Authorization: `Bearer ${token}`,
-    },
+    };
+  }
+
+  async function handleSaveListing(listingId) {
+  const response = await fetch(`${API_BASE_URL}/saved-listings/${listingId}`, {
+    method: "POST",
+    headers: getAuthHeaders(),
   });
 
   const data = await response.json();
@@ -46,13 +52,9 @@ function App() {
   fetchSavedListings();
 }
 async function handleUnsaveListing(listingId) {
-  const token = localStorage.getItem("token");
-
-  const response = await fetch(`http://localhost:8000/api/saved-listings/${listingId}`, {
+  const response = await fetch(`${API_BASE_URL}/saved-listings/${listingId}`, {
     method: "DELETE",
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    headers: getAuthHeaders(),
   });
 
   const data = await response.json();
@@ -66,12 +68,8 @@ async function handleUnsaveListing(listingId) {
   fetchSavedListings();
 }
 async function fetchSavedListings() {
-  const token = localStorage.getItem("token");
-
-  const response = await fetch("http://localhost:8000/api/saved-listings", {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+  const response = await fetch(`${API_BASE_URL}/saved-listings`, {
+    headers: getAuthHeaders(),
   });
 
   const data = await response.json();
@@ -151,6 +149,7 @@ async function fetchSavedListings() {
       method,
       headers: {
         "Content-Type": "application/json",
+        ...getAuthHeaders(),
       },
       body: JSON.stringify(formData),
     })
@@ -197,6 +196,7 @@ async function fetchSavedListings() {
 
     fetch(`${API_URL}/${listing.id}`, {
       method: "DELETE",
+      headers: getAuthHeaders(),
     })
       .then(async (response) => {
         const data = await response.json();
@@ -242,6 +242,7 @@ async function fetchSavedListings() {
         <div>
           <p className="eyebrow">Admin</p>
           <h1>Listing Manager</h1>
+          <p className="record-count">Logged in as {user.name}</p>
         </div>
         <div className="row-actions">
           <p className="record-count">{listings.length} records</p>
@@ -374,16 +375,20 @@ async function fetchSavedListings() {
                         <button type="button" onClick={() => handleSaveListing(listing.id)}>
                           Save
                         </button>
-                        <button type="button" onClick={() => startEdit(listing)}>
-                          Edit
-                        </button>
-                        <button
-                          type="button"
-                          className="danger"
-                          onClick={() => deleteListing(listing)}
-                        >
-                          Delete
-                        </button>
+                        {listing.user_id === user.id && (
+                          <>
+                            <button type="button" onClick={() => startEdit(listing)}>
+                              Edit
+                            </button>
+                            <button
+                              type="button"
+                              className="danger"
+                              onClick={() => deleteListing(listing)}
+                            >
+                              Delete
+                            </button>
+                          </>
+                        )}
                       </div>
                     </td>
                   </tr>

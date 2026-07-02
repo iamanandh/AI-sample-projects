@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const LOGIN_URL = "http://localhost:8000/api/auth/login";
+const LOGIN_URL = "http://localhost:8080/api/auth/login";
 function Loginpage({ onLogin }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
